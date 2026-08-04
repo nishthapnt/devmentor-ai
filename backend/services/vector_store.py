@@ -1,0 +1,48 @@
+import uuid
+
+import chromadb
+
+client = chromadb.PersistentClient(path="vector_db")
+
+collection = client.get_or_create_collection(
+    name="documents"
+)
+
+
+def store_chunks(filename, chunks):
+
+    ids = []
+
+    documents = []
+
+    metadata = []
+
+    for i, chunk in enumerate(chunks):
+
+        ids.append(str(uuid.uuid4()))
+
+        documents.append(chunk["text"])
+
+        metadata.append({
+            "filename": filename,
+            "page": chunk["page"],
+            "chunk": i
+        })
+
+    collection.add(
+        ids=ids,
+        documents=documents,
+        metadatas=metadata
+    )
+
+def search_chunks(query: str, k: int = 3):
+
+    results = collection.query(
+        query_texts=[query],
+        n_results=k
+    )
+
+    return {
+        "documents": results["documents"][0],
+        "metadata": results["metadatas"][0]
+    }

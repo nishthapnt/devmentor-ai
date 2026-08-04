@@ -1,0 +1,130 @@
+# ======================================================
+# Python / FastAPI
+# ======================================================
+
+# Virtual environments
+backend/.venv/
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type checking
+.mypy_cache/
+.pyre/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Environment variables
+backend/.env
+backend/.env.*
+!.env.example
+
+# SQLite databases
+*.db
+*.sqlite3
+
+# ======================================================
+# FastAPI Runtime
+# ======================================================
+
+# Uploaded files
+backend/uploads/
+
+# ChromaDB
+backend/chroma_db/
+backend/chroma/
+
+# Temporary files
+backend/tmp/
+backend/temp/
+
+# ======================================================
+# Next.js / Node
+# ======================================================
+
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+
+# npm / pnpm / yarn logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.production.local
+frontend/.env.test.local
+
+# ======================================================
+# IDE
+# ======================================================
+
+.vscode/
+.idea/
+
+# ======================================================
+# OS
+# ======================================================
+
+.DS_Store
+Thumbs.db
+
+# ======================================================
+# Misc
+# ======================================================
+
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# ======================================================
+# Optional AI/ML Models
+# (Uncomment if you store local models)
+# ======================================================
+
+# models/
+# *.gguf
+# *.bin
+# *.safetensors
+# huggingface/
+
+# ======================================================
+# Secrets
+# ======================================================
+
+.env
+.env.*
+
+# Keep template env files
+!.env.example
