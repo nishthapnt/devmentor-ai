@@ -5,9 +5,9 @@ def chunk_pages(
 ):
     all_chunks = []
 
-    for page in pages:
+    for page in pages: #because pages is a list comtaing page objs(dictionaries in py)
 
-        text = page["text"]
+        text = page["text"] # accessing dict value using key
 
         start = 0
 

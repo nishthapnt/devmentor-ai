@@ -95,7 +95,7 @@ export default function Chat() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask a question..."
             disabled={isLoading}
-            className="w-full pl-4 pr-12 py-3 bg-gray-50 border-transparent focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-full text-gray-800 transition-all outline-none"
+            className="w-full pl-4 pr-12 py-3 bg-pink-100 border-transparent focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-full text-gray-800 transition-all outline-none"
           />
           <button
             type="submit"
