@@ -50,3 +50,15 @@ Question
     )
 
     return response.choices[0].message.content
+
+#     SYSTEM
+# ↓
+# Instructions for the AI
+
+# USER
+# ↓
+# What the human is asking
+
+# ASSISTANT
+# ↓
+# What the AI previously said
