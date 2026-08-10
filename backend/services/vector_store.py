@@ -2,14 +2,27 @@ import uuid
 
 import chromadb
 
-client = chromadb.PersistentClient(path="vector_db")
+
+client = chromadb.CloudClient(
+    tenant=os.getenv("CHROMA_TENANT"),
+    database=os.getenv("CHROMA_DATABASE"),
+    api_key=os.getenv("CHROMA_API_KEY"),
+)
 
 collection = client.get_or_create_collection(
     name="documents"
 )
 
-
 def store_chunks(filename, chunks):
+#     This receives:
+
+# filename → "python.pdf"
+
+# chunks → [
+#     {"text": "...", "page": 1},
+#     {"text": "...", "page": 1},
+#     {"text": "...", "page": 2}
+# ]
 
     ids = []
 
