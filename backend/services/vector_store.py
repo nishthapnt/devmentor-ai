@@ -1,7 +1,10 @@
+import os
 import uuid
 
 import chromadb
+from dotenv import load_dotenv
 
+load_dotenv()
 
 client = chromadb.CloudClient(
     tenant=os.getenv("CHROMA_TENANT"),
@@ -13,25 +16,13 @@ collection = client.get_or_create_collection(
     name="documents"
 )
 
+
 def store_chunks(filename, chunks):
-#     This receives:
-
-# filename → "python.pdf"
-
-# chunks → [
-#     {"text": "...", "page": 1},
-#     {"text": "...", "page": 1},
-#     {"text": "...", "page": 2}
-# ]
-
     ids = []
-
     documents = []
-
     metadata = []
 
     for i, chunk in enumerate(chunks):
-
         ids.append(str(uuid.uuid4()))
 
         documents.append(chunk["text"])
@@ -48,8 +39,8 @@ def store_chunks(filename, chunks):
         metadatas=metadata
     )
 
-def search_chunks(query: str, k: int = 3):
 
+def search_chunks(query: str, k: int = 3):
     results = collection.query(
         query_texts=[query],
         n_results=k
