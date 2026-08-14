@@ -1,16 +1,10 @@
-import os
 import uuid
 
 import chromadb
-from dotenv import load_dotenv
 
-load_dotenv()
 
-client = chromadb.CloudClient(
-    tenant=os.getenv("CHROMA_TENANT"),
-    database=os.getenv("CHROMA_DATABASE"),
-    api_key=os.getenv("CHROMA_API_KEY"),
-)
+# Local, in-memory Chroma database
+client = chromadb.Client()
 
 collection = client.get_or_create_collection(
     name="documents"
