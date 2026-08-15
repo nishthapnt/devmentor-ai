@@ -5,6 +5,15 @@ from pypdf import PdfReader
 UPLOAD_DIR = Path("uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
 
+def cleanup_uploads():
+    if UPLOAD_DIR.exists():
+        for file in UPLOAD_DIR.iterdir():
+            if file.is_file():
+                try:
+                    file.unlink()
+                except Exception:
+                    pass
+
 
 def save_pdf(file):
     file_path = UPLOAD_DIR / file.filename

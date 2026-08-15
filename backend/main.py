@@ -1,11 +1,18 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from routes.chat import router as chat_router
 from routes.upload import router as upload_router
 from routes.search import router as search_router
 from fastapi.middleware.cors import CORSMiddleware
+from services.pdf_loader import cleanup_uploads
 
-app = FastAPI(title="DevMentor AI")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    cleanup_uploads()
+    yield
+
+app = FastAPI(title="DevMentor AI", lifespan=lifespan)
 
 # CORS Configuration
 app.add_middleware(
