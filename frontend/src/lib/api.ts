@@ -12,9 +12,7 @@ export interface ChatResponse {
 
 const API_BASE_URL = "http://localhost:8000";
 
-/**
- * Uploads a PDF file to the backend to be indexed.
- */
+
 export async function uploadPdf(file: File): Promise<any> {
   const formData = new FormData();
   // Using 'file' as the form field name based on standard FastAPI UploadFile
